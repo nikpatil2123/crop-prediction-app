@@ -11,7 +11,6 @@ This project provides a smart crop prediction system that leverages an XGBoost m
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -136,7 +135,6 @@ Contributions are welcome! Please fork the repository and submit pull requests. 
 
 
 ```
-
 This should meet your requirements. Let me know if you need any further adjustments!
 ```
 
