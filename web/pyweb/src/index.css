@@ -1,0 +1,150 @@
+/* ==========================================
+   Agriculture-Themed Premium Form Styles
+   ========================================== */
+
+/* Define custom color variables for easy theming */
+:root {
+	--primary-color: #4CAF50;
+	/* Fresh green */
+	--secondary-color: #2E7D32;
+	/* Deep green */
+	--accent-color: #8D6E63;
+	/* Earthy brown */
+	--background-gradient-start: #F1F8E9;
+	/* Light, organic tone */
+	--background-gradient-end: #DCEDC8;
+	/* Subtle green tone */
+	--form-bg: #ffffff;
+	/* Clean form background */
+	--border-color: #C8E6C9;
+	--text-color: #3E3E3E;
+	--label-color: #555;
+	--shadow-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Remove scrolling on the body if desired */
+html,
+body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+/* Global Styles */
+body {
+	font-family: 'Poppins', sans-serif;
+	background: linear-gradient(135deg, var(--background-gradient-start), var(--background-gradient-end));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* Optional: add a background image overlay for extra texture */
+	background-image: url('https://www.transparenttextures.com/patterns/organic-leaf.png');
+	background-blend-mode: multiply;
+	background-size: cover;
+}
+
+/* Container that naturally sizes to its content and centers on the page */
+.container {
+	position: relative;
+	max-width: 450px;
+	width: 90%;
+	padding: 40px;
+	background: var(--form-bg);
+	border-radius: 16px;
+	box-shadow: 0 10px 25px var(--shadow-color);
+	text-align: center;
+	/* Remove the max-height and overflow properties to let the container size naturally */
+}
+
+h2 {
+	color: var(--secondary-color);
+	font-size: 28px;
+	margin-bottom: 25px;
+	font-weight: 700;
+}
+
+.form-group {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.form-group label {
+	font-weight: 600;
+	display: block;
+	margin-bottom: 6px;
+	color: var(--label-color);
+	font-size: 16px;
+}
+
+.form-control {
+	width: 100%;
+	padding: 12px 14px;
+	font-size: 16px;
+	border: 2px solid var(--border-color);
+	border-radius: 10px;
+	background-color: #FAFAFA;
+	transition: all 0.3s ease-in-out;
+	box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-control:focus {
+	border-color: var(--primary-color);
+	outline: none;
+	box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+	background-color: #ffffff;
+}
+
+.btn {
+	width: 100%;
+	padding: 14px;
+	font-size: 17px;
+	color: #ffffff;
+	background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+	border: none;
+	border-radius: 12px;
+	cursor: pointer;
+	font-weight: bold;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+	background: linear-gradient(135deg, #388E3C, #1B5E20);
+	transform: translateY(-3px);
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+h3 {
+	color: var(--accent-color);
+	margin-top: 25px;
+	font-weight: 600;
+	font-size: 20px;
+}
+
+/* Additional decorative element for an organic look */
+.container::before {
+	content: "";
+	position: absolute;
+	width: 120%;
+	height: 120%;
+	background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+	opacity: 0.05;
+	top: -10%;
+	left: -10%;
+	z-index: -1;
+	border-radius: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+	.container {
+		max-width: 95%;
+		padding: 25px;
+	}
+
+	.form-control,
+	.btn {
+		font-size: 15px;
+		padding: 12px;
+	}
+}

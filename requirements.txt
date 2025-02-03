@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+xgboost
+pickle-mixin
+tk
+matplotlib
+openpyxl
+flask
+flask_cors
