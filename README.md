@@ -66,7 +66,7 @@ The project consists of two main components:
 ### Setup Frontend
 1. **Navigate to the Frontend Directory:**
     ```
-    cd ../web
+    cd ../web/pyweb
     ```
 2. **Install Node Dependencies:**
     ```
