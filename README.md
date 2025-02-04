@@ -136,7 +136,8 @@ The project consists of two main components:
 │   ├── crop_model.pkl      # Pickled model, scaler, and accuracy (generated after training)
 │   ├── requirements.txt    # Python dependencies for backend
 │   └── ...
-├── frontend
+├── web
+├──- pyweb
 │   ├── public
 │   ├── src
 │   │   ├── App.js          # Main React component for UI
