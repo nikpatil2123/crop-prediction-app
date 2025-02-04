@@ -24,9 +24,14 @@ An XGBoost classifier is trained on historical crop data to make predictions. Th
 ## Features
 
 - **Accurate Predictions:** Uses an XGBoost classifier for multi-class crop prediction.
-- **RESTful API:** Flask API exposes a `/` endpoint to provide crop predictions.
+- **RESTful API:** Flask API exposes a `/predict` endpoint to provide crop predictions.
 - **React Frontend:** A modern, interactive UI for entering data and displaying prediction results.
 - **Model Evaluation:** The backend logs and displays model accuracy during training.
+- **Additional Features:**
+  - **Fertilizer Recommendation:** Suggests the best fertilizer based on soil nutrients.
+  - **Pesticide Suggestion:** Recommends suitable pesticides for the crop.
+  - **Irrigation Scheduling:** Provides irrigation schedules based on climate data.
+  - **Climate Impact Analysis:** Analyzes the impact of climate parameters on crop health.
 
 ## Architecture
 
@@ -34,11 +39,16 @@ The project consists of two main components:
 
 1. **Backend (Flask API):**
    - **Model Training:** Loads data, preprocesses it (including label encoding and feature scaling), trains the XGBoost model, and saves the model.
-   - **API Endpoints:** Provides a `/predict` endpoint to accept POST requests with soil and climate parameters and returns the predicted crop along with confidence scores.
+   - **API Endpoints:** Provides:
+     - `/predict` endpoint to accept POST requests with soil and climate parameters and returns the predicted crop along with confidence scores.
+     - `/fertilizer` endpoint to recommend fertilizers.
+     - `/pesticide` endpoint to suggest pesticides.
+     - `/irrigation` endpoint to provide irrigation schedules.
+     - `/climate-impact` endpoint to analyze climate impact.
 
 2. **Frontend (React):**
    - A React application that provides a form for entering the required parameters.
-   - Makes POST requests to the Flask API and displays the returned crop prediction.
+   - Makes POST requests to the Flask API and displays the returned crop prediction and other recommendations.
 
 ## Installation
 
