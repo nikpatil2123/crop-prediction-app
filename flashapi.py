@@ -11,21 +11,33 @@ with open('crop_model.pkl', 'rb') as f:
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-@app.route('/', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     try:
-        # Get the features from the request
-        features = request.get_json()  # Get the JSON data sent from React
-        input_data = np.array([list(features.values())])  # Convert input to numpy array
-        scaled_data = scaler.transform(input_data)  # Scale the input data
-        
-        # Make prediction
+        features = request.get_json()
+        input_data = np.array([list(features.values())])
+        scaled_data = scaler.transform(input_data)
         prediction = model.predict(scaled_data)
         predicted_label = label_encoder.inverse_transform(prediction)[0]
-        
-        # Send the response back to the frontend
         return jsonify({'predicted_crop': predicted_label})
-    
+    except Exception as e:
+        return jsonify({'error': str(e)})
+
+@app.route('/climate-impact', methods=['POST'])
+def climate_impact():
+    try:
+        climate_params = request.get_json()
+        temperature = climate_params.get('temperature')
+        humidity = climate_params.get('humidity')
+        rainfall = climate_params.get('rainfall')
+
+        impact_analysis = {
+            'temperature_impact': f'High temperatures ({temperature}°C) can cause heat stress, while low temperatures can cause frost damage.',
+            'humidity_impact': f'High humidity ({humidity}%) can promote fungal diseases, while low humidity can cause drought stress.',
+            'rainfall_impact': f'High rainfall ({rainfall}mm) can cause waterlogging and root rot, while low rainfall can cause drought stress.'
+        }
+
+        return jsonify({'climate_impact_analysis': impact_analysis})
     except Exception as e:
         return jsonify({'error': str(e)})
 

@@ -1,150 +1,341 @@
-/* ==========================================
-   Agriculture-Themed Premium Form Styles
-   ========================================== */
-
-/* Define custom color variables for easy theming */
-:root {
-	--primary-color: #4CAF50;
-	/* Fresh green */
-	--secondary-color: #2E7D32;
-	/* Deep green */
-	--accent-color: #8D6E63;
-	/* Earthy brown */
-	--background-gradient-start: #F1F8E9;
-	/* Light, organic tone */
-	--background-gradient-end: #DCEDC8;
-	/* Subtle green tone */
-	--form-bg: #ffffff;
-	/* Clean form background */
-	--border-color: #C8E6C9;
-	--text-color: #3E3E3E;
-	--label-color: #555;
-	--shadow-color: rgba(0, 0, 0, 0.15);
-}
-
-/* Remove scrolling on the body if desired */
-html,
-body {
-	height: 100%;
+/* Base styles and CSS reset */
+* {
 	margin: 0;
-	overflow: hidden;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-/* Global Styles */
 body {
-	font-family: 'Poppins', sans-serif;
-	background: linear-gradient(135deg, var(--background-gradient-start), var(--background-gradient-end));
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	/* Optional: add a background image overlay for extra texture */
-	background-image: url('https://www.transparenttextures.com/patterns/organic-leaf.png');
-	background-blend-mode: multiply;
-	background-size: cover;
+	background: linear-gradient(135deg, #f6f9fc 0%, #edf2f7 100%);
+	min-height: 100vh;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-/* Container that naturally sizes to its content and centers on the page */
+/* Main container styles */
 .container {
-	position: relative;
-	max-width: 450px;
-	width: 90%;
-	padding: 40px;
-	background: var(--form-bg);
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 2.5rem;
+	background: rgba(255, 255, 255, 0.95);
 	border-radius: 16px;
-	box-shadow: 0 10px 25px var(--shadow-color);
-	text-align: center;
-	/* Remove the max-height and overflow properties to let the container size naturally */
+	box-shadow:
+		0 4px 6px rgba(0, 0, 0, 0.05),
+		0 10px 15px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+/* Header styles with gradient */
 h2 {
-	color: var(--secondary-color);
-	font-size: 28px;
-	margin-bottom: 25px;
+	background: linear-gradient(120deg, #2c5282, #4299e1);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-align: center;
+	margin-bottom: 2.5rem;
+	font-size: 2.25rem;
 	font-weight: 700;
+	letter-spacing: -0.5px;
+	position: relative;
 }
 
+h2::after {
+	content: '';
+	display: block;
+	width: 60px;
+	height: 4px;
+	background: linear-gradient(90deg, #4299e1, #2c5282);
+	margin: 1rem auto;
+	border-radius: 2px;
+}
+
+/* Enhanced form styles */
 .form-group {
-	margin-bottom: 20px;
-	text-align: left;
+	margin-bottom: 1.75rem;
+	position: relative;
 }
 
 .form-group label {
-	font-weight: 600;
 	display: block;
-	margin-bottom: 6px;
-	color: var(--label-color);
-	font-size: 16px;
+	margin-bottom: 0.75rem;
+	color: #2d3748;
+	font-weight: 600;
+	font-size: 0.95rem;
+	transition: color 0.3s ease;
 }
 
 .form-control {
 	width: 100%;
-	padding: 12px 14px;
-	font-size: 16px;
-	border: 2px solid var(--border-color);
-	border-radius: 10px;
-	background-color: #FAFAFA;
-	transition: all 0.3s ease-in-out;
-	box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+	padding: 0.875rem 1rem;
+	border: 2px solid #e2e8f0;
+	border-radius: 8px;
+	font-size: 1rem;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	background-color: #fff;
+}
+
+.form-control:hover {
+	border-color: #cbd5e0;
 }
 
 .form-control:focus {
-	border-color: var(--primary-color);
 	outline: none;
-	box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
-	background-color: #ffffff;
+	border-color: #4299e1;
+	box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.15);
+	transform: translateY(-1px);
 }
 
+/* Enhanced select styles */
+select.form-control {
+	appearance: none;
+	background-image: linear-gradient(45deg, transparent 50%, #4a5568 50%),
+		linear-gradient(135deg, #4a5568 50%, transparent 50%);
+	background-position:
+		calc(100% - 20px) calc(1em + 2px),
+		calc(100% - 15px) calc(1em + 2px);
+	background-size: 5px 5px, 5px 5px;
+	background-repeat: no-repeat;
+	padding-right: 3rem;
+}
+
+select.form-control:focus {
+	background-image: linear-gradient(45deg, #4299e1 50%, transparent 50%),
+		linear-gradient(135deg, transparent 50%, #4299e1 50%);
+}
+
+/* Enhanced button styles */
 .btn {
+	display: block;
 	width: 100%;
-	padding: 14px;
-	font-size: 17px;
-	color: #ffffff;
-	background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+	padding: 1rem;
+	background: linear-gradient(135deg, #4299e1 0%, #2c5282 100%);
+	color: white;
 	border: none;
-	border-radius: 12px;
+	border-radius: 8px;
+	font-size: 1.1rem;
+	font-weight: 600;
 	cursor: pointer;
-	font-weight: bold;
-	transition: all 0.3s ease-in-out;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	overflow: hidden;
+}
+
+.btn::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, #2c5282 0%, #4299e1 100%);
+	opacity: 0;
+	transition: opacity 0.3s ease;
 }
 
 .btn:hover {
-	background: linear-gradient(135deg, #388E3C, #1B5E20);
-	transform: translateY(-3px);
-	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(66, 153, 225, 0.4);
 }
 
-h3 {
-	color: var(--accent-color);
-	margin-top: 25px;
+.btn:hover::before {
+	opacity: 1;
+}
+
+.btn:active {
+	transform: translateY(0);
+}
+
+/* Enhanced result section styles */
+div>h3 {
+	background: linear-gradient(to right, #f7fafc, #fff);
+	padding: 1.25rem;
+	border-radius: 8px;
+	border-left: 4px solid #4299e1;
+	margin: 2rem 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced climate impact analysis styles */
+div>div>h3 {
+	color: #2c5282;
+	border-bottom: 2px solid #e2e8f0;
+	padding-bottom: 0.75rem;
+	margin-bottom: 1.5rem;
+	font-size: 1.5rem;
+}
+
+div>div>p {
+	margin: 1.25rem 0;
+	padding: 1rem;
+	background-color: #f7fafc;
+	border-radius: 8px;
+	border: 1px solid #e2e8f0;
+	transition: all 0.3s ease;
+}
+
+div>div>p:hover {
+	transform: translateX(5px);
+	border-left: 4px solid #4299e1;
+}
+
+div>div>p strong {
+	color: #2c5282;
+	margin-right: 0.75rem;
 	font-weight: 600;
-	font-size: 20px;
 }
 
-/* Additional decorative element for an organic look */
-.container::before {
-	content: "";
-	position: absolute;
-	width: 120%;
-	height: 120%;
-	background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-	opacity: 0.05;
-	top: -10%;
-	left: -10%;
-	z-index: -1;
-	border-radius: 16px;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-	.container {
-		max-width: 95%;
-		padding: 25px;
+/* Enhanced loading animation */
+@keyframes loadingPulse {
+	0% {
+		transform: scale(1);
+		opacity: 1;
 	}
 
-	.form-control,
+	50% {
+		transform: scale(1.05);
+		opacity: 0.7;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+h3:contains("Loading...") {
+	text-align: center;
+	color: #4299e1;
+	animation: loadingPulse 1.5s infinite;
+	background: linear-gradient(to right, #f7fafc, #fff);
+}
+
+/* Enhanced error state */
+h3:contains("Error") {
+	color: #e53e3e;
+	background: linear-gradient(to right, #fff5f5, #fff);
+	border-left: 4px solid #e53e3e;
+	animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes shake {
+
+	10%,
+	90% {
+		transform: translateX(-1px);
+	}
+
+	20%,
+	80% {
+		transform: translateX(2px);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: translateX(-4px);
+	}
+
+	40%,
+	60% {
+		transform: translateX(4px);
+	}
+}
+
+/* Form validation feedback */
+.form-control:invalid {
+	border-color: #fc8181;
+	animation: invalidShake 0.3s ease-in-out;
+}
+
+@keyframes invalidShake {
+
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	25% {
+		transform: translateX(-5px);
+	}
+
+	75% {
+		transform: translateX(5px);
+	}
+}
+
+/* Tooltip styles */
+.form-group label::after {
+	content: attr(title);
+	position: absolute;
+	top: -8px;
+	right: 0;
+	background: #2d3748;
+	color: white;
+	padding: 0.5rem;
+	border-radius: 4px;
+	font-size: 0.75rem;
+	opacity: 0;
+	transform: translateY(-10px);
+	transition: all 0.3s ease;
+	pointer-events: none;
+}
+
+.form-group:hover label::after {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Enhanced responsive design */
+@media (max-width: 768px) {
+	.container {
+		margin: 1rem;
+		padding: 1.5rem;
+		border-radius: 12px;
+	}
+
+	h2 {
+		font-size: 1.75rem;
+	}
+
+	.form-group {
+		margin-bottom: 1.25rem;
+	}
+
 	.btn {
-		font-size: 15px;
-		padding: 12px;
+		padding: 0.875rem;
+		font-size: 1rem;
+	}
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+	body {
+		background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+	}
+
+	.container {
+		background: rgba(26, 32, 44, 0.95);
+		border-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.form-control {
+		background-color: #2d3748;
+		border-color: #4a5568;
+		color: #fff;
+	}
+
+	.form-group label {
+		color: #e2e8f0;
+	}
+
+	div>h3 {
+		background: linear-gradient(to right, #2d3748, #1a202c);
+		color: #e2e8f0;
+	}
+
+	div>div>p {
+		background-color: #2d3748;
+		border-color: #4a5568;
+		color: #e2e8f0;
 	}
 }

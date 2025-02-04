@@ -11,7 +11,7 @@ from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 # Load dataset
-file_path = 'corps.xlsx'  # Replace with your dataset path
+file_path = 'crops.xlsx'  # Replace with your dataset path
 xls = pd.ExcelFile(file_path)
 df = pd.read_excel(xls, 'Sheet1')  # Adjust sheet name if needed
 
