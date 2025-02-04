@@ -101,19 +101,19 @@ The project consists of two main components:
      
         - POST /fertilizer
 
-         Request Body: Same as /
+         - Request Body: Same as /
          The response will include fertilizer recommendations.
          POST /pesticide
 
-         Request Body: Same as /
+         - Request Body: Same as /
          The response will suggest suitable pesticides.
          POST `/irrigation`
          
-         Request Body: Same as /
+         - Request Body: Same as /
          The response will provide an irrigation schedule.
          POST `/climate-impact`
          
-         Request Body: Same as /
+         - Request Body: Same as /
          The response will analyze the impact of climate parameters on crop health.
 
 ### Running the React Frontend
