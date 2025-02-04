@@ -62,7 +62,7 @@ The project consists of two main components:
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/nikpatil2123/crop-prediction-app.git
-   cd crop-prediction-app/backend
+   cd crop-prediction-app
    ```
 
 2. Install Python Dependencies:
