@@ -41,10 +41,10 @@ The project consists of two main components:
    - **Model Training:** Loads data, preprocesses it (including label encoding and feature scaling), trains the XGBoost model, and saves the model.
    - **API Endpoints:** Provides:
      - `/predict` endpoint to accept POST requests with soil and climate parameters and returns the predicted crop along with confidence scores.
-     - `/fertilizer` endpoint to recommend fertilizers.
-     - `/pesticide` endpoint to suggest pesticides.
-     - `/irrigation` endpoint to provide irrigation schedules.
-     - `/climate-impact` endpoint to analyze climate impact.
+     - `/predict` endpoint to recommend fertilizers.
+     - `/predict` endpoint to suggest pesticides.
+     - `/predict` endpoint to provide irrigation schedules.
+     - `/predict` endpoint to analyze climate impact.
 
 2. **Frontend (React):**
    - A React application that provides a form for entering the required parameters.
