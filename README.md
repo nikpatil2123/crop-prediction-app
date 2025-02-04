@@ -83,7 +83,7 @@ The project consists of two main components:
 
 2. **API Endpoint:**
     - **API Endpoint:**
-        - POST /predict
+        - POST /
 
             - Request Body (JSON Example):
             ```
@@ -100,10 +100,10 @@ The project consists of two main components:
         - The response will include the predicted crop and confidence score.
      
 
-      - POST /fertilizer
+      - POST /
          - Request Body: Same as /
             - The response will include fertilizer recommendations.
-            - POST /pesticide
+            - POST `/pesticide`
 
          - Request Body: Same as /
             - The response will suggest suitable pesticides.
