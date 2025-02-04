@@ -99,8 +99,8 @@ The project consists of two main components:
             ```
         - The response will include the predicted crop and confidence score.
      
-        - POST /fertilizer
 
+      - POST /fertilizer
          - Request Body: Same as /
             - The response will include fertilizer recommendations.
             - POST /pesticide
