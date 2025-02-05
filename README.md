@@ -24,9 +24,14 @@ An XGBoost classifier is trained on historical crop data to make predictions. Th
 ## Features
 
 - **Accurate Predictions:** Uses an XGBoost classifier for multi-class crop prediction.
-- **RESTful API:** Flask API exposes a `/` endpoint to provide crop predictions.
+- **RESTful API:** Flask API exposes a `/predict` endpoint to provide crop predictions.
 - **React Frontend:** A modern, interactive UI for entering data and displaying prediction results.
 - **Model Evaluation:** The backend logs and displays model accuracy during training.
+- **Additional Features:**
+  - **Fertilizer Recommendation:** Suggests the best fertilizer based on soil nutrients.
+  - **Pesticide Suggestion:** Recommends suitable pesticides for the crop.
+  - **Irrigation Scheduling:** Provides irrigation schedules based on climate data.
+  - **Climate Impact Analysis:** Analyzes the impact of climate parameters on crop health.
 
 ## Architecture
 
@@ -34,11 +39,16 @@ The project consists of two main components:
 
 1. **Backend (Flask API):**
    - **Model Training:** Loads data, preprocesses it (including label encoding and feature scaling), trains the XGBoost model, and saves the model.
-   - **API Endpoints:** Provides a `/predict` endpoint to accept POST requests with soil and climate parameters and returns the predicted crop along with confidence scores.
+   - **API Endpoints:** Provides:
+     - `/predict` endpoint to accept POST requests with soil and climate parameters and returns the predicted crop along with confidence scores.
+     - `/predict` endpoint to recommend fertilizers.
+     - `/predict` endpoint to suggest pesticides.
+     - `/predict` endpoint to provide irrigation schedules.
+     - `/predict` endpoint to analyze climate impact.
 
 2. **Frontend (React):**
    - A React application that provides a form for entering the required parameters.
-   - Makes POST requests to the Flask API and displays the returned crop prediction.
+   - Makes POST requests to the Flask API and displays the returned crop prediction and other recommendations.
 
 ## Installation
 
@@ -52,7 +62,7 @@ The project consists of two main components:
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/nikpatil2123/crop-prediction-app.git
-   cd crop-prediction-app/backend
+   cd crop-prediction-app
    ```
 
 2. Install Python Dependencies:
@@ -66,7 +76,7 @@ The project consists of two main components:
 ### Setup Frontend
 1. **Navigate to the Frontend Directory:**
     ```
-    cd ../web
+    cd ../web/pyweb
     ```
 2. **Install Node Dependencies:**
     ```
@@ -83,7 +93,7 @@ The project consists of two main components:
 
 2. **API Endpoint:**
     - **API Endpoint:**
-        - POST /predict
+        - POST /
 
             - Request Body (JSON Example):
             ```
@@ -98,6 +108,23 @@ The project consists of two main components:
             }
             ```
         - The response will include the predicted crop and confidence score.
+     
+
+      - POST /
+         - Request Body: Same as /
+            - The response will include fertilizer recommendations.
+            - POST `/pesticide`
+
+         - Request Body: Same as /
+            - The response will suggest suitable pesticides.
+            - POST `/irrigation`
+         
+         - Request Body: Same as /
+            - The response will provide an irrigation schedule.
+            - POST `/climate-impact`
+         
+         - Request Body: Same as /
+            - The response will analyze the impact of climate parameters on crop health.
 
 ### Running the React Frontend
 1. **Start the React App**
@@ -119,7 +146,8 @@ The project consists of two main components:
 │   ├── crop_model.pkl      # Pickled model, scaler, and accuracy (generated after training)
 │   ├── requirements.txt    # Python dependencies for backend
 │   └── ...
-├── frontend
+├── web
+├──- pyweb
 │   ├── public
 │   ├── src
 │   │   ├── App.js          # Main React component for UI
